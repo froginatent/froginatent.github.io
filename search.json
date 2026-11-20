@@ -1,16 +1,30 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "math.html",
+    "href": "math.html",
+    "title": "Mathematics",
     "section": "",
-    "text": "About this site"
+    "text": "eirfi \\(2=2=4\\) \\[6=7-1\\]"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "website",
+    "title": "About Me",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Hello there! I am Naman Goyal, a human from planet Earth. I am currently a first-year undergraduate pursuing a B.Tech. in Computer Science and Engineering at IIT Kanpur. I have a deep interest in mathematics and music. In particular, I like listening to rock music, playing the guitar and keyboard, and singing. Apart from this, I am also interested in bird-watching and photography. In my free time, I sometimes play table tennis."
+  },
+  {
+    "objectID": "music.html",
+    "href": "music.html",
+    "title": "Music",
+    "section": "",
+    "text": "hb"
+  },
+  {
+    "objectID": "birds.html",
+    "href": "birds.html",
+    "title": "Birds",
+    "section": "",
+    "text": "n nbb"
   }
 ]
