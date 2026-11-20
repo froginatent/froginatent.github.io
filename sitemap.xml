@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://froginatent.github.io/math.html</loc>
-    <lastmod>2026-11-19T22:07:08.144Z</lastmod>
+    <loc>https://froginatent.github.io/birds/sirsa.html</loc>
+    <lastmod>2026-11-20T20:34:45.827Z</lastmod>
   </url>
   <url>
     <loc>https://froginatent.github.io/index.html</loc>
-    <lastmod>2026-11-19T22:03:20.258Z</lastmod>
+    <lastmod>2026-11-20T18:22:26.876Z</lastmod>
+  </url>
+  <url>
+    <loc>https://froginatent.github.io/academics/math_blog.html</loc>
+    <lastmod>2026-11-20T20:26:20.101Z</lastmod>
   </url>
   <url>
     <loc>https://froginatent.github.io/music.html</loc>
-    <lastmod>2026-11-19T22:10:16.597Z</lastmod>
+    <lastmod>2026-11-20T18:23:07.721Z</lastmod>
   </url>
   <url>
-    <loc>https://froginatent.github.io/birds.html</loc>
-    <lastmod>2026-11-19T22:10:17.277Z</lastmod>
+    <loc>https://froginatent.github.io/academics/montyhall.html</loc>
+    <lastmod>2026-11-20T20:01:05.725Z</lastmod>
+  </url>
+  <url>
+    <loc>https://froginatent.github.io/contact.html</loc>
+    <lastmod>2026-11-20T18:26:26.321Z</lastmod>
+  </url>
+  <url>
+    <loc>https://froginatent.github.io/birds/iitk.html</loc>
+    <lastmod>2026-11-20T20:34:12.499Z</lastmod>
   </url>
 </urlset>

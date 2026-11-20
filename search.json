@@ -1,30 +1,23 @@
 [
   {
-    "objectID": "math.html",
-    "href": "math.html",
-    "title": "Mathematics",
-    "section": "",
-    "text": "eirfi \\(2=2=4\\) \\[6=7-1\\]"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "About Me",
+    "title": "Frog in a Tent",
     "section": "",
-    "text": "Hello there! I am Naman Goyal, a human from planet Earth. I am currently a first-year undergraduate pursuing a B.Tech. in Computer Science and Engineering at IIT Kanpur. I have a deep interest in mathematics and music. In particular, I like listening to rock music, playing the guitar and keyboard, and singing. Apart from this, I am also interested in bird-watching and photography. In my free time, I sometimes play table tennis."
+    "text": "Frog in a Tent\n\nHello there! I am Naman Goyal, a human from planet Earth. I am currently a first-year undergraduate pursuing a B.Tech. in Computer Science and Engineering at IIT Kanpur. I have a deep interest in mathematics and music. In particular, I like listening to rock music, playing the guitar and keyboard, and singing. Apart from this, I am also interested in bird-watching and photography. In my free time, I sometimes play table tennis."
   },
   {
-    "objectID": "music.html",
-    "href": "music.html",
-    "title": "Music",
+    "objectID": "academics/math_blog.html",
+    "href": "academics/math_blog.html",
+    "title": "Mathematics",
     "section": "",
-    "text": "hb"
+    "text": "Here are some posts:\n\nThe Monty Hall Problem"
   },
   {
-    "objectID": "birds.html",
-    "href": "birds.html",
-    "title": "Birds",
+    "objectID": "birds/iitk.html",
+    "href": "birds/iitk.html",
+    "title": "Birds of IIT Kanpur",
     "section": "",
-    "text": "n nbb"
+    "text": "So far, I’ve successfully spotted the following inside the IIT Kanpur campus:\n\nAsian Koel\nBlack Drongo\nBlack Kite\nBrown-headed Barbet\nCommon Hawk-Cuckoo\nCommon Myna\nCoppersmith Barbet\nEastern Cattle Egret\nEurasian Collared Dove\nEurasian Thick-knee\nGreater Coucal\nHouse Crow\nIndian Cormorant\nIndian Grey Hornbill\nIndian Peafowl\nIndian Pond Heron\nIndian Scops-Owl\nIndian White-eye\nJungle Babbler\nLaughing Dove\nOriental Magpie-Robin\nPurple Sunbird\nRed-vented Bulbul\nRed-wattled Lapwing\nRed-whiskered Bulbul (Lifer here)\nRock Pigeon\nRose-ringed Parakeet\nRufous Treepie\nWhite-breasted Kingfisher\nWhite-breasted Waterhen\nWhite-browed Wagtail"
   }
 ]
