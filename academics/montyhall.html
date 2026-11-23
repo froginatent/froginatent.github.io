@@ -251,13 +251,14 @@ window.Quarto = {
 </section>
 <section id="correct-solution" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="correct-solution"><span class="header-section-number">2.2</span> Correct solution</h2>
-<p>We have to calculate the conditonal probability that car is behind our originally selected door given that car is not behind a particular other door (i.e.&nbsp;the one that Monty has opened). Suppose, without loss of any generality, that I have picked door <span class="math inline">\(D_3\)</span> initially, and Monty has opened <span class="math inline">\(D_2\)</span>.</p>
+<p>We have to calculate the conditional probability that car is behind our originally selected door given that car is not behind a particular other door (i.e.&nbsp;the one that Monty has opened). Suppose, without loss of any generality, that I have picked door <span class="math inline">\(D_3\)</span> initially, and Monty has opened <span class="math inline">\(D_2\)</span>.</p>
 <p><span class="math inline">\(P\left({\text{Car behind }D_3}\mid{\text{Monty opens }D_2}\right) = \frac{P\left(\text{Monty opens }D_2\ \cap\text{ Car behind }D_3\right)}{P\left(\text{Monty opens }D_2\right)}\)</span></p>
+<p>This is the “Bayesian probability” for this event.</p>
 <p>In order to compute this, we would have to look at multiple cases on where the car is and what door you pick initially. We do this by treating our problem statistically:</p>
 <section id="statistical-treatment" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="statistical-treatment"><span class="header-section-number">2.2.1</span> Statistical treatment</h3>
 <p>One way to look at probability is statistics. So, we iterate this experiment <span class="math inline">\(N\)</span> times, and look at how many times you get the car by switching or sticking respectively.</p>
-<p>There is one-third probability of the car being behind any door. So, in <span class="math inline">\(\frac{N}{3}\)</span> times, the car would be behind <span class="math inline">\(D_1\)</span>. Consider these only for now. We talk for these <span class="math inline">\(\frac{N}{9}\)</span> only for now.</p>
+<p>There is one-third probability of the car being behind any door. So, in <span class="math inline">\(\frac{N}{3}\)</span> times, the car would be behind <span class="math inline">\(D_1\)</span>. Consider these only for now. We talk for these <span class="math inline">\(\frac{N}{3}\)</span> only for now.</p>
 <p>You also have one-third probability of picking any particular door initially. So, <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_1\)</span>; <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_2\)</span>; <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_3\)</span>.</p>
 <p><em>Take the first case:</em> you pick <span class="math inline">\(D_1\)</span>. Goats behind <span class="math inline">\(D_2\)</span> and <span class="math inline">\(D_3\)</span>. So, <span class="math inline">\(\frac{N}{9}\)</span> times, Monty opens either <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span>. You must <strong>stick</strong> to get car.</p>
 <p><em>Take the second case:</em> you pick <span class="math inline">\(D_2\)</span>. Goats behind <span class="math inline">\(D_2, D_3\)</span>. All <span class="math inline">\(\frac{N}{9}\)</span> times, Monty must open <span class="math inline">\(D_3\)</span>. You must <strong>switch</strong> to get the car.</p>
@@ -275,18 +276,18 @@ window.Quarto = {
 </section>
 <section id="monty-hall-you-bob-and-marley" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Monty Hall, you, Bob and Marley</h1>
-<p>This time, your friends Bob and Marley are also here for the car, just like you. They, too, don’t know where the car is. So, Monty asks all of you to pick different doors simultaneously (assume that if any two of you pick the same door, that choice is cancelled, and all of you pick again, and this process repeats until all three don’t pick different doors). Then, Monty instructs any one (each with probability <span class="math inline">\(\frac12\)</span>), who Monty knows has picked a door with a goat, to open the door. That person is eliminated. Then Monty gives the two survivors the option to switch or stick (each one unaware of what the other person decides). If one person chooses to stick and one person chooses to switch, then each person gets <em>half</em> points of what is behind the common selected door. After that, we look at what the optimal strategies of the remaining two players should be, assuming Nash equilbrium conditions.</p>
+<p>This time, your friends Bob and Marley are also here for the car, just like you. They, too, don’t know where the car is. So, Monty asks all of you to pick different doors simultaneously (assume that if any two of you pick the same door, that choice is cancelled, and all of you pick again, and this process repeats until all three pick different doors). Then, Monty instructs any one (each with probability <span class="math inline">\(\frac12\)</span>), who Monty knows has picked a door with a goat, to open the door. That person is eliminated. Then Monty gives the two survivors the option to switch or stick (each one unaware of what the other person decides). If one person chooses to stick and one person chooses to switch, then each person gets <em>half</em> points of what is behind the common selected door. After that, we look at what the optimal strategies of the remaining two players should be, assuming Nash equilbrium conditions.</p>
 <div class="left-note">
-<p>In game theory, the Nash equilibrium is a state where all the players are in their best individual states possible.</p>
+<p>In game theory, the Nash equilibrium is a state where no player can do better by just changing their own strategy.</p>
 </div>
 <section id="analysis" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="analysis"><span class="header-section-number">3.1</span> Analysis</h2>
-<p>Initially, the probability of your door not having a car is <span class="math inline">\(\frac23\)</span>. If you have a goat, initially, there is a <span class="math inline">\(\frac12\)</span> chance of you getting eliminated. In these <span class="math inline">\(\frac13^{\text{rd}}\)</span> cases, payoff is <span class="math inline">\(0\)</span>. Looking at the remaining <span class="math inline">\(\frac23^{\text{rd}}\)</span> cases, where you survive the initial elimination, we construct a payoff table listing different scenarios. For this, we need to calculate the payoff for both swtich or both stick case.</p>
+<p>Initially, the probability of your door not having a car is <span class="math inline">\(\frac23\)</span>. If you have a goat, initially, there is a <span class="math inline">\(\frac12\)</span> chance of you getting eliminated. In these <span class="math inline">\(\frac13^{\text{rd}}\)</span> cases, payoff is <span class="math inline">\(0\)</span>. Looking at the remaining <span class="math inline">\(\frac23^{\text{rd}}\)</span> cases, where you survive the initial elimination, we construct a payoff table listing different scenarios. For this, we need to calculate the payoff for both switch or both stick case.</p>
 <p>Suppose WLOG, that <span class="math inline">\(D_2\)</span> has been opened to reveal a goat.</p>
 <p>To avoid getting all messy, we use conditional probability.</p>
-<p><span class="math inline">\(P(D_1 \text{ has the car} \mid D_2 \text{ has a goat}) = \frac{P(D_1 \text{ has the car } \cap D_2 \text{ has a goat})}{P(D_2 \text{ has a goat})} = \frac{\frac13}{\frac23}=\frac12\)</span></p>
+<p><span class="math inline">\(P(D_1 \text{ has the car} \mid D_2 \text{ has a goat}) = \frac{P(D_1 \text{ has the car } \cap D_2 \text{ has a goat})}{P(\ D_2 \text{ has a goat})} = \frac{\frac13}{\frac23}=\frac12\)</span></p>
 <p>Symmetrically,</p>
-<p><span class="math inline">\(P(D_3 \text{ has the car} \mid D_2 \text{ has a goat}) = \frac{P(D_3 \text{ has the car } \cap D_2 \text{ has a goat})}{P(D_2 \text{ has a goat})} = \frac{\frac13}{\frac23}=\frac12\)</span></p>
+<p><span class="math inline">\(P(D_3 \text{ has the car} \mid D_2 \text{ has a goat}) = \frac{P(D_3 \text{ has the car } \cap D_2 \text{ has a goat})}{P(\ D_2 \text{ has a goat})} = \frac{\frac13}{\frac23}=\frac12\)</span></p>
 <p>So, both of the two remaining doors are equally likely to have a car in this scenario.</p>
 <p><em>This is an important distinction between the classical version and this version with Monty + three players. In the classical version, these probabilities turn out to be <span class="math inline">\(\frac{2}{3}\)</span> for the door initially not selected by the person, and <span class="math inline">\(\frac13\)</span> for the door initially selected by the person.</em></p>
 <p>Now, if both of you decide to stick, then expected payoff for both of you (given that both of you survive the initial elimination) will be <span class="math inline">\(\frac12 \times 0 + \frac12 \times 1 = \frac12\)</span> each.</p>
@@ -327,10 +328,10 @@ Table&nbsp;1: Payoff matrix (You, Other survivor)
 </div>
 </figure>
 </div>
-<p>Therefore, there are two positions that correspond to a Nash equilibra: either both switch or both stick.</p>
+<p>Therefore, there are two positions that correspond to a Nash equilibria: either both switch or both stick.</p>
 <p>Assuming both play optimally, there is no reason to prefer switching over sticking or vice versa. So, suppose unideal behaviour and suppose that the other person has a probability <span class="math inline">\(p\)</span> of sticking. You stick with probability <span class="math inline">\(q\)</span>. Then, the expected payoff over the whole game for you would be</p>
 <p><span class="math inline">\(\mathbb{E} = \frac13 \times 0 + \frac23 \times \left((1-p)(1-q)\times\frac12+(1-p)q\times\frac14+p(1-q)\times\frac14+pq\times\frac12\right) = \frac{(2p-1)q+(2-p)}{6}\)</span></p>
-<p>This function is linear in <span class="math inline">\(p\)</span>.</p>
+<p>This function is linear in <span class="math inline">\(q\)</span>.</p>
 <p>This would be maximised if <span class="math inline">\(q=1\)</span> (always stick) when <span class="math inline">\(p&gt;\frac12\)</span> and if <span class="math inline">\(q=0\)</span> when <span class="math inline">\(p&lt;\frac12\)</span>.</p>
 <p>This should make sense, as you would try to match the other player’s move. If he is more likely to switch, you would switch, and vice versa.</p>
 </section>
@@ -418,7 +419,7 @@ Table&nbsp;1: Payoff matrix (You, Other survivor)
 </tr>
 </tbody>
 </table>
-<p>Suppose now that you stick to your original choice with probabilty <span class="math inline">\(s\)</span>. Probability of car actually being behind door <span class="math inline">\(D_1\)</span>, <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span> is <span class="math inline">\(\frac13\)</span> each. Proability of intially selecting any particular door is also <span class="math inline">\(\frac13\)</span>, as when all are closed, you can’t tell the difference between any two. Then, expected payoff is</p>
+<p>Suppose now that you stick to your original choice with probability <span class="math inline">\(s\)</span>. Probability of car actually being behind door <span class="math inline">\(D_1\)</span>, <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span> is <span class="math inline">\(\frac13\)</span> each. Probability of initially selecting any particular door is also <span class="math inline">\(\frac13\)</span>, as when all are closed, you can’t tell the difference between any two. Then, expected payoff is</p>
 <p><span class="math inline">\(\mathbb{E}=3\times\frac13\times\frac13\left(s\times0 +(1-s)(1-p)+s\times0+(1-s)(1-p) + s\times1 + (1-s)(1-p)\right) = s\left(p-\frac13\right)+\left(\frac23-p\right)\)</span></p>
 <p>For a fixed <span class="math inline">\(p\)</span>, <span class="math inline">\(\mathbb{E}\)</span> is a linear function of <span class="math inline">\(s\)</span>. We want to maximise <span class="math inline">\(\mathbb{E}\)</span>.</p>
 <section id="final-answer" class="level3" data-number="5.1.1">
@@ -435,7 +436,7 @@ Table&nbsp;1: Payoff matrix (You, Other survivor)
 <p>We can relate Bayesian probability with statistical probability, as we did for the solution of the classical version.</p>
 <section id="further-extensions" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="further-extensions"><span class="header-section-number">6.1</span> Further extensions</h2>
-<p>Several other variations are also possible! For example, we have the quantum version of this problem, where the your and Monty’s actions, as well as the states of the doors may be stored in wavefunctions, “kets”. These are represented as <span class="math inline">\(|\psi\rangle\)</span>. Using various logical gates on the doors can be used to contruct the W-state, where 3 qubits are maximally entangled. The W state is</p>
+<p>Several other variations are also possible! For example, we have the quantum version of this problem, where your and Monty’s actions, as well as the states of the doors may be stored in wavefunctions, “kets”. These are represented as <span class="math inline">\(|\psi\rangle\)</span>. Using various logical gates on the doors can be used to construct the W-state, where 3 qubits are entangled. The W state is</p>
 <p><span class="math inline">\(|W\rangle = \frac1{\sqrt3}\left(|001\rangle+|010\rangle+|100\rangle\right)\)</span></p>
 </section>
 </section>
