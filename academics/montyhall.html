@@ -210,7 +210,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content" tabindex="-1">
+<main class="content page-columns page-full" id="quarto-document-content" tabindex="-1">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -233,40 +233,43 @@ window.Quarto = {
 
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>In 1963, a game show called <em>Let’s make a deal</em> started in the USA. The host was the famous Monty Hall. On the show, Monty proposed a problem in probability, that confused the layman even today. The mathematician, on the other hand, might be able to understand the solution with a probability of <span class="math inline">\(\frac23\)</span>! We also explore some other variations of the the classical problem, and the optimal strategies to maximise the payoff, some of which may help in developing the intuition behind the original problem.</p>
+<p>In 1963, a game show called <em>Let’s make a deal</em> started in the USA. The host was the famous Monty Hall. On the show, Monty proposed a problem in probability that confuses the layman even today. The mathematician, on the other hand, might be able to understand the solution with a probability of <span class="math inline">\(\frac23\)</span>! We also explore some other variations of the classical problem, and the optimal strategies to maximise the payoff, some of which may help in developing the intuition behind the original problem.</p>
 </section>
-<section id="monty-hall-the-classical-problem" class="level1" data-number="2">
+<section id="monty-hall-the-classical-problem" class="level1 page-columns page-full" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Monty Hall: The Classical Problem</h1>
-<p>Suppose your friend Monty Hall takes you in front of three closed doors <span class="math inline">\(D_1, D_2, D_3\)</span>. Behind one of them is a car and behind the two others are goats. You do not know what is behind which door, but Monty knows. So, he asks you to pick a door. The out of the remaining two doors, he opens one door which doesn’t have a car behind it. Now, should you stick to your originaly choice, or should you switch to the other unopened door in order to maximise your chances of getting a car?</p>
+<p>Suppose your friend Monty Hall takes you in front of three closed doors <span class="math inline">\(D_1, D_2, D_3\)</span>. Behind one of them is a car and behind the two others are goats. You do not know what is behind which door, but Monty knows. So, he asks you to choose a door. Out of the two remaining doors, he opens one door which doesn’t have a car behind it. Now, should you stick to your original choice, or should you switch to the other unopened door in order to maximise your chances of winning a car?</p>
 <section id="incorrect-solution" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="incorrect-solution"><span class="header-section-number">2.1</span> Incorrect solution</h2>
 <p>One flawed argument that wrongly solves this problem goes as: After Monty opens the door which has a goat, one of the remaining two doors has a car and other one has a goat. So he has <span class="math inline">\(\frac{1}{2}\)</span> probability of getting a car in either door. So, it doesn’t matter whether he switches or not.</p>
 <p>But, actually, it does. Switching gives you a <span class="math inline">\(\frac{2}{3}\)</span> probability of winning. But sticking gives you a probability of <span class="math inline">\(\frac{1}{3}\)</span> of winning. This can be explained as follows:</p>
 </section>
-<section id="correct-solution" class="level2" data-number="2.2">
+<section id="correct-solution" class="level2 page-columns page-full" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="correct-solution"><span class="header-section-number">2.2</span> Correct solution</h2>
-<p>We have to calculate the condiditonal probability that car is behind our originally selected door given that car is not behind a particular other door. Suppose, without loss of any generality, that I have picked door <span class="math inline">\(D_3\)</span> initially, and Monty has opened <span class="math inline">\(D_2\)</span>. <span class="math inline">\(P\left(\frac{\text{Car behind }D_3}{\text{Monty opens }D_2}\right) = \frac{P\left(\text{Monty opens }D_2\cap\text{Car behind }D_3\right)}{P\left(\text{Monty opens }D_2\right)}\)</span></p>
+<p>We have to calculate the conditonal probability that car is behind our originally selected door given that car is not behind a particular other door (i.e.&nbsp;the one that Monty has opened). Suppose, without loss of any generality, that I have picked door <span class="math inline">\(D_3\)</span> initially, and Monty has opened <span class="math inline">\(D_2\)</span>.</p>
+<p><span class="math inline">\(P\left({\text{Car behind }D_3}\mid{\text{Monty opens }D_2}\right) = \frac{P\left(\text{Monty opens }D_2\ \cap\text{ Car behind }D_3\right)}{P\left(\text{Monty opens }D_2\right)}\)</span></p>
 <p>In order to compute this, we would have to look at multiple cases on where the car is and what door you pick initially. We do this by treating our problem statistically:</p>
-<section id="statistical-treatment" class="level3" data-number="2.2.1">
+<section id="statistical-treatment" class="level3 page-columns page-full" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="statistical-treatment"><span class="header-section-number">2.2.1</span> Statistical treatment</h3>
-<p>One way to look at probability is statistics. So, we iterate this experiment <span class="math inline">\(N\)</span> times, and look at how many times the you get the car by switching or sticking.</p>
-<p>There is one third probability of the car being behind any door. So, in <span class="math inline">\(\frac{N}{3}\)</span> times, the car would be behind <span class="math inline">\(D_1\)</span>. Consider these only for now. We talk for these <span class="math inline">\(\frac{N}{9}\)</span> only for now.</p>
-<p>Also, you also have a one-third probability of picking any particular door initially. So, <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_1\)</span>; <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_2\)</span>; <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_3\)</span>.</p>
+<p>One way to look at probability is statistics. So, we iterate this experiment <span class="math inline">\(N\)</span> times, and look at how many times you get the car by switching or sticking respectively.</p>
+<p>There is one-third probability of the car being behind any door. So, in <span class="math inline">\(\frac{N}{3}\)</span> times, the car would be behind <span class="math inline">\(D_1\)</span>. Consider these only for now. We talk for these <span class="math inline">\(\frac{N}{9}\)</span> only for now.</p>
+<p>You also have one-third probability of picking any particular door initially. So, <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_1\)</span>; <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_2\)</span>; <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_3\)</span>.</p>
 <p><em>Take the first case:</em> you pick <span class="math inline">\(D_1\)</span>. Goats behind <span class="math inline">\(D_2\)</span> and <span class="math inline">\(D_3\)</span>. So, <span class="math inline">\(\frac{N}{9}\)</span> times, Monty opens either <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span>. You must <strong>stick</strong> to get car.</p>
 <p><em>Take the second case:</em> you pick <span class="math inline">\(D_2\)</span>. Goats behind <span class="math inline">\(D_2, D_3\)</span>. All <span class="math inline">\(\frac{N}{9}\)</span> times, Monty must open <span class="math inline">\(D_3\)</span>. You must <strong>switch</strong> to get the car.</p>
 <p><em>Take the third case:</em> this is symmetric to the second case. All <span class="math inline">\(\frac{N}{9}\)</span> times, you must <strong>switch</strong> to get the car.</p>
 <p>Now, out of the <span class="math inline">\(\frac{N}{3}\)</span> times, you must switch <span class="math inline">\(\frac{N}{9}+\frac{N}{9}=\frac{2N}{9}\)</span> times and stick <span class="math inline">\(\frac{N}{18}+\frac{N}{18}=\frac{N}{9}\)</span> times.</p>
 <p>The other iterations out of <span class="math inline">\(N\)</span>, where car is behind the door <span class="math inline">\(D_2\)</span> and <span class="math inline">\(D_3\)</span> are symmetrical. So, to get the car, you must: <span class="math inline">\(\text{Switch} = \frac{2N}{3} \text{ times}\)</span> and <span class="math inline">\(\text{Stick} = \frac{N}{3} \text{ times}\)</span></p>
-<p>So, respective probabilities are <span class="math inline">\(\frac23\)</span> and <span class="math inline">\(\frac13\)</span> respectively.</p>
-<p>If we assign a car 1 point, and a goat 0 point, so your expected payoff on switching would be <span class="math inline">\(\frac23\)</span> and on wticking would be <span class="math inline">\(\frac13\)</span>.</p>
-<p>The erroreneous argument that leads to expected payoff <span class="math inline">\(\frac12\)</span> is because of poorly or incorrectly defined sample spaces.</p>
-<p>Let’s look at another variation of the Monty Hall problem.</p>
+<p>So, probabilities are <span class="math inline">\(\frac23\)</span> and <span class="math inline">\(\frac13\)</span>, respectively.</p>
+<p>If we assign a car 1 point, and a goat 0 point, so your expected payoff on switching would be <span class="math inline">\(\frac23\)</span> and on sticking would be <span class="math inline">\(\frac13\)</span>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>The erroneous argument that leads to the expected payoff of <span class="math inline">\(\frac12\)</span> is because of poorly or incorrectly defined sample spaces.</p>
+</div></div><p>Let’s look at another variation of the Monty Hall problem.</p>
 </section>
 </section>
 </section>
 <section id="monty-hall-you-bob-and-marley" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Monty Hall, you, Bob and Marley</h1>
-<p>This time, your friends Bob and Marley are also here for the car, just like you. They, too, don’t know where the car is. So, Monty asks all of you to pick different doors simultaneously (assume that if any two of you pick the same door, that choice is cancelled, and all of you pick again until all three don’t pick different doors.) Then, Monty instructs any one (each with probability <span class="math inline">\(\frac12\)</span>), who Monty knows has picked a door with a goat, to open the door. That person is eliminated. Then Monty gives the two survivors the option to switch or stick (each one unaware of what the other person decides). If one person chooses to stick and one person chooses to switch, then each person gets <em>half</em> points of what is behind the common selected door. After that, we look at what the optimal strategies of the remaining two players should be, assuming Nash equilbrium conditions.</p>
+<p>This time, your friends Bob and Marley are also here for the car, just like you. They, too, don’t know where the car is. So, Monty asks all of you to pick different doors simultaneously (assume that if any two of you pick the same door, that choice is cancelled, and all of you pick again, and this process repeats until all three don’t pick different doors). Then, Monty instructs any one (each with probability <span class="math inline">\(\frac12\)</span>), who Monty knows has picked a door with a goat, to open the door. That person is eliminated. Then Monty gives the two survivors the option to switch or stick (each one unaware of what the other person decides). If one person chooses to stick and one person chooses to switch, then each person gets <em>half</em> points of what is behind the common selected door. After that, we look at what the optimal strategies of the remaining two players should be, assuming Nash equilbrium conditions.</p>
 <section id="analysis" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="analysis"><span class="header-section-number">3.1</span> Analysis</h2>
 <p>Initially, the probability of your position not having a car is <span class="math inline">\(\frac23\)</span>. If you have a goat, initially, there is a <span class="math inline">\(\frac12\)</span> chance of you getting eliminated. In these <span class="math inline">\(\frac13^{\text{rd}}\)</span> cases, payoff is <span class="math inline">\(0\)</span>. Looking at the remaining <span class="math inline">\(\frac23^{\text{rd}}\)</span> cases, where you survive the initial elimination, we construct a payoff table listing different scenarios. For this, we need to calculate the payoff for both swtich or both stick case.</p>
@@ -333,6 +336,10 @@ Table&nbsp;1: Payoff matrix (You, Other survivor)
 </section>
 <section id="correct-solution-1" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="correct-solution-1"><span class="header-section-number">4.2</span> Correct solution</h2>
+<p>We consider two mutually excllusive cases:</p>
+<p><em>Case 1:</em> The initial choice has a goat. Probability of this event is <span class="math inline">\(\frac{n-1}{n}\)</span>. You must <strong>switch</strong> to win.</p>
+<p><em>Case 2:</em> The initial choice has a car. Probability of this event is <span class="math inline">\(\frac{1}{n}\)</span>. You must <strong>stick</strong> to win.</p>
+<p>So clearly,</p>
 </section>
 </section>
 <section id="darth-hall-monty-is-evil" class="level1" data-number="5">
@@ -396,7 +403,8 @@ Table&nbsp;1: Payoff matrix (You, Other survivor)
 </tr>
 </tbody>
 </table>
-<p>Suppose now that you stick to your original choice with probabilty <span class="math inline">\(s\)</span>. Probability of car actually being behind door <span class="math inline">\(D_1\)</span>, <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span> is <span class="math inline">\(\frac13\)</span> each. Proability of intially selecting any particular door is also <span class="math inline">\(\frac13\)</span>, as when all are closed, you can’t tell the difference between any two. Then, expected payoff = <span class="math inline">\(\mathbb{E}= 3 \times \frac13 \times \frac13 \left(s\times0 +(1-s)(1-p)+s\times0+(1-s)(1-p) + s\times1 + (1-s)(1-p)\right) = s\left(p-\frac13\right)+\left(\frac23-p\right)\)</span></p>
+<p>Suppose now that you stick to your original choice with probabilty <span class="math inline">\(s\)</span>. Probability of car actually being behind door <span class="math inline">\(D_1\)</span>, <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span> is <span class="math inline">\(\frac13\)</span> each. Proability of intially selecting any particular door is also <span class="math inline">\(\frac13\)</span>, as when all are closed, you can’t tell the difference between any two. Then, expected payoff is</p>
+<p><span class="math inline">\(\mathbb{E}=3\times\frac13\times\frac13\left(s\times0 +(1-s)(1-p)+s\times0+(1-s)(1-p) + s\times1 + (1-s)(1-p)\right) = s\left(p-\frac13\right)+\left(\frac23-p\right)\)</span></p>
 <p>For a fixed <span class="math inline">\(p\)</span>, <span class="math inline">\(\mathbb{E}\)</span> is a linear function of <span class="math inline">\(s\)</span>. We want to maximise <span class="math inline">\(\mathbb{E}\)</span>.</p>
 <section id="final-answer" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="final-answer"><span class="header-section-number">5.1.1</span> Final answer</h3>
