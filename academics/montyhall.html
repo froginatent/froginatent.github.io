@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-414de3f2a5b645a8ea003a70c6008ce7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8a6c6d3613ab290d596ef53e5f3d5925.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,10 +75,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -146,7 +176,39 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#monty-hall-the-classical-problem" id="toc-monty-hall-the-classical-problem" class="nav-link" data-scroll-target="#monty-hall-the-classical-problem"><span class="header-section-number">2</span> Monty Hall: The Classical Problem</a>
+  <ul class="collapse">
+  <li><a href="#incorrect-solution" id="toc-incorrect-solution" class="nav-link" data-scroll-target="#incorrect-solution"><span class="header-section-number">2.1</span> Incorrect solution</a></li>
+  <li><a href="#correct-solution" id="toc-correct-solution" class="nav-link" data-scroll-target="#correct-solution"><span class="header-section-number">2.2</span> Correct solution</a>
+  <ul class="collapse">
+  <li><a href="#statistical-treatment" id="toc-statistical-treatment" class="nav-link" data-scroll-target="#statistical-treatment"><span class="header-section-number">2.2.1</span> Statistical treatment</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#monty-hall-you-bob-and-marley" id="toc-monty-hall-you-bob-and-marley" class="nav-link" data-scroll-target="#monty-hall-you-bob-and-marley"><span class="header-section-number">3</span> Monty Hall, you, Bob and Marley</a>
+  <ul class="collapse">
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">3.1</span> Analysis</a></li>
+  </ul></li>
+  <li><a href="#infinity-hall" id="toc-infinity-hall" class="nav-link" data-scroll-target="#infinity-hall"><span class="header-section-number">4</span> Infinity Hall</a>
+  <ul class="collapse">
+  <li><a href="#incorrect-solution-for-n-doors" id="toc-incorrect-solution-for-n-doors" class="nav-link" data-scroll-target="#incorrect-solution-for-n-doors"><span class="header-section-number">4.1</span> Incorrect solution for <span class="math inline">\(n\)</span> doors</a></li>
+  <li><a href="#correct-solution-1" id="toc-correct-solution-1" class="nav-link" data-scroll-target="#correct-solution-1"><span class="header-section-number">4.2</span> Correct solution</a></li>
+  </ul></li>
+  <li><a href="#darth-hall-monty-is-evil" id="toc-darth-hall-monty-is-evil" class="nav-link" data-scroll-target="#darth-hall-monty-is-evil"><span class="header-section-number">5</span> Darth Hall: Monty is evil</a>
+  <ul class="collapse">
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution"><span class="header-section-number">5.1</span> Solution</a>
+  <ul class="collapse">
+  <li><a href="#final-answer" id="toc-final-answer" class="nav-link" data-scroll-target="#final-answer"><span class="header-section-number">5.1.1</span> Final answer</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
 
@@ -169,8 +231,182 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>In 1963, a game show called <em>Let’s make a deal</em> started in the USA. The host was the famous Monty Hall. On the show, Monty proposed a problem in probability, that confused the layman even today. The mathematician, on the other hand, might be able to understand the solution with a probability of <span class="math inline">\(\frac23\)</span>! We also explore some other variations of the the classical problem, and the optimal strategies to maximise the payoff, some of which may help in developing the intuition behind the original problem.</p>
+</section>
+<section id="monty-hall-the-classical-problem" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Monty Hall: The Classical Problem</h1>
+<p>Suppose your friend Monty Hall takes you in front of three closed doors <span class="math inline">\(D_1, D_2, D_3\)</span>. Behind one of them is a car and behind the two others are goats. You do not know what is behind which door, but Monty knows. So, he asks you to pick a door. The out of the remaining two doors, he opens one door which doesn’t have a car behind it. Now, should you stick to your originaly choice, or should you switch to the other unopened door in order to maximise your chances of getting a car?</p>
+<section id="incorrect-solution" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="incorrect-solution"><span class="header-section-number">2.1</span> Incorrect solution</h2>
+<p>One flawed argument that wrongly solves this problem goes as: After Monty opens the door which has a goat, one of the remaining two doors has a car and other one has a goat. So he has <span class="math inline">\(\frac{1}{2}\)</span> probability of getting a car in either door. So, it doesn’t matter whether he switches or not.</p>
+<p>But, actually, it does. Switching gives you a <span class="math inline">\(\frac{2}{3}\)</span> probability of winning. But sticking gives you a probability of <span class="math inline">\(\frac{1}{3}\)</span> of winning. This can be explained as follows:</p>
+</section>
+<section id="correct-solution" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="correct-solution"><span class="header-section-number">2.2</span> Correct solution</h2>
+<p>We have to calculate the condiditonal probability that car is behind our originally selected door given that car is not behind a particular other door. Suppose, without loss of any generality, that I have picked door <span class="math inline">\(D_3\)</span> initially, and Monty has opened <span class="math inline">\(D_2\)</span>. <span class="math inline">\(P\left(\frac{\text{Car behind }D_3}{\text{Monty opens }D_2}\right) = \frac{P\left(\text{Monty opens }D_2\cap\text{Car behind }D_3\right)}{P\left(\text{Monty opens }D_2\right)}\)</span></p>
+<p>In order to compute this, we would have to look at multiple cases on where the car is and what door you pick initially. We do this by treating our problem statistically:</p>
+<section id="statistical-treatment" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="statistical-treatment"><span class="header-section-number">2.2.1</span> Statistical treatment</h3>
+<p>One way to look at probability is statistics. So, we iterate this experiment <span class="math inline">\(N\)</span> times, and look at how many times the you get the car by switching or sticking.</p>
+<p>There is one third probability of the car being behind any door. So, in <span class="math inline">\(\frac{N}{3}\)</span> times, the car would be behind <span class="math inline">\(D_1\)</span>. Consider these only for now. We talk for these <span class="math inline">\(\frac{N}{9}\)</span> only for now.</p>
+<p>Also, you also have a one-third probability of picking any particular door initially. So, <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_1\)</span>; <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_2\)</span>; <span class="math inline">\(\frac{N}{9}\)</span> times, you pick <span class="math inline">\(D_3\)</span>.</p>
+<p><em>Take the first case:</em> you pick <span class="math inline">\(D_1\)</span>. Goats behind <span class="math inline">\(D_2\)</span> and <span class="math inline">\(D_3\)</span>. So, <span class="math inline">\(\frac{N}{9}\)</span> times, Monty opens either <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span>. You must <strong>stick</strong> to get car.</p>
+<p><em>Take the second case:</em> you pick <span class="math inline">\(D_2\)</span>. Goats behind <span class="math inline">\(D_2, D_3\)</span>. All <span class="math inline">\(\frac{N}{9}\)</span> times, Monty must open <span class="math inline">\(D_3\)</span>. You must <strong>switch</strong> to get the car.</p>
+<p><em>Take the third case:</em> this is symmetric to the second case. All <span class="math inline">\(\frac{N}{9}\)</span> times, you must <strong>switch</strong> to get the car.</p>
+<p>Now, out of the <span class="math inline">\(\frac{N}{3}\)</span> times, you must switch <span class="math inline">\(\frac{N}{9}+\frac{N}{9}=\frac{2N}{9}\)</span> times and stick <span class="math inline">\(\frac{N}{18}+\frac{N}{18}=\frac{N}{9}\)</span> times.</p>
+<p>The other iterations out of <span class="math inline">\(N\)</span>, where car is behind the door <span class="math inline">\(D_2\)</span> and <span class="math inline">\(D_3\)</span> are symmetrical. So, to get the car, you must: <span class="math inline">\(\text{Switch} = \frac{2N}{3} \text{ times}\)</span> and <span class="math inline">\(\text{Stick} = \frac{N}{3} \text{ times}\)</span></p>
+<p>So, respective probabilities are <span class="math inline">\(\frac23\)</span> and <span class="math inline">\(\frac13\)</span> respectively.</p>
+<p>If we assign a car 1 point, and a goat 0 point, so your expected payoff on switching would be <span class="math inline">\(\frac23\)</span> and on wticking would be <span class="math inline">\(\frac13\)</span>.</p>
+<p>The erroreneous argument that leads to expected payoff <span class="math inline">\(\frac12\)</span> is because of poorly or incorrectly defined sample spaces.</p>
+<p>Let’s look at another variation of the Monty Hall problem.</p>
+</section>
+</section>
+</section>
+<section id="monty-hall-you-bob-and-marley" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Monty Hall, you, Bob and Marley</h1>
+<p>This time, your friends Bob and Marley are also here for the car, just like you. They, too, don’t know where the car is. So, Monty asks all of you to pick different doors simultaneously (assume that if any two of you pick the same door, that choice is cancelled, and all of you pick again until all three don’t pick different doors.) Then, Monty instructs any one (each with probability <span class="math inline">\(\frac12\)</span>), who Monty knows has picked a door with a goat, to open the door. That person is eliminated. Then Monty gives the two survivors the option to switch or stick (each one unaware of what the other person decides). If one person chooses to stick and one person chooses to switch, then each person gets <em>half</em> points of what is behind the common selected door. After that, we look at what the optimal strategies of the remaining two players should be, assuming Nash equilbrium conditions.</p>
+<section id="analysis" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="analysis"><span class="header-section-number">3.1</span> Analysis</h2>
+<p>Initially, the probability of your position not having a car is <span class="math inline">\(\frac23\)</span>. If you have a goat, initially, there is a <span class="math inline">\(\frac12\)</span> chance of you getting eliminated. In these <span class="math inline">\(\frac13^{\text{rd}}\)</span> cases, payoff is <span class="math inline">\(0\)</span>. Looking at the remaining <span class="math inline">\(\frac23^{\text{rd}}\)</span> cases, where you survive the initial elimination, we construct a payoff table listing different scenarios. For this, we need to calculate the payoff for both swtich or both stick case.</p>
+<p>Suppose WLOG, that <span class="math inline">\(D_2\)</span> has been opened to reveal a goat.</p>
+<p>To avoid getting all messy, we use conditional probability.</p>
+<p><span class="math inline">\(P(D_1 \text{ has the car} \mid D_2 \text{ has a goat}) = \frac{P(D_1 \text{ has the car } \cap D_2 \text{ has a goat})}{P(D_2 \text{ has a goat})} = \frac{\frac13}{\frac23}=\frac12\)</span></p>
+<p>Symmetrically,</p>
+<p><span class="math inline">\(P(D_3 \text{ has the car} \mid D_2 \text{ has a goat}) = \frac{P(D_3 \text{ has the car } \cap D_2 \text{ has a goat})}{P(D_2 \text{ has a goat})} = \frac{\frac13}{\frac23}=\frac12\)</span></p>
+<p>So, both of the two remaining doors are equally likely to have a car in this scenario.</p>
+<p><em>This is an important distinction between the classical version and this version with Monty + three players. In the classical version, these probabilities turn out to be <span class="math inline">\(\frac{2}{3}\)</span> for the door initially not selected by the person, and <span class="math inline">\(\frac13\)</span> for the door initially selected by the person.</em></p>
+<p>Now, if both of you decidee to stick, then expected payoff for both of you (given that both of you survive the initial elimination) will be <span class="math inline">\(\frac12 \times 0 + \frac12 \times 1 = \frac12\)</span> each.</p>
+<p>If both of you decide to switch, then again the expected payoff for both of you (given that both of you survive the initial elimination) will be <span class="math inline">\(\frac12 \times 0 + \frac12 \times 1 = \frac12\)</span> each.</p>
+<p>Suppose if one decides to stay and one decides to switch, then the expected payoff for both of you (given that both of you survive the initial elimination) will be <span class="math inline">\(\frac12 \times 0 + \frac12 \times \frac12= \frac14\)</span> each.</p>
+<div id="tbl-payoffs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-payoffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Payoff matrix (You, Other survivor)
+</figcaption>
+<div aria-describedby="tbl-payoffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;"><strong>Other survivor Switches</strong></th>
+<th style="text-align: center;"><strong>Other survivor Sticks</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>You Switch</strong></td>
+<td style="text-align: center;"><span class="math inline">\((\tfrac{1}{2}, \tfrac{1}{2})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((\tfrac{1}{4}, \tfrac{1}{4})\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>You Stick</strong></td>
+<td style="text-align: center;"><span class="math inline">\((\tfrac{1}{4}, \tfrac{1}{4})\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((\tfrac{1}{2}, \tfrac{1}{2})\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Therefore, there are two positions that correspond to a Nash equilibra: either both switch or both stick.</p>
+<p>Assuming both play optimally, there is no reason to prefer switching over sticking or vice versa. So, suppose unideal behaviour and suppose that the other person has a probability <span class="math inline">\(p\)</span> of sticking. You stick with probability <span class="math inline">\(q\)</span>. Then, the expected payoff over the whole game for you would be</p>
+<p><span class="math inline">\(\mathbb{E} = \frac13 \times 0 + \frac23 \times \left((1-p)(1-q)\times\frac12+(1-p)q\times\frac14+p(1-q)\times\frac14+pq\times\frac12\right) = \frac{(2p-1)q+(2-p)}{6}\)</span></p>
+<p>This function is linear in <span class="math inline">\(p\)</span>.</p>
+<p>This would be maximised if <span class="math inline">\(q=1\)</span> (always stick) when <span class="math inline">\(p&gt;\frac12\)</span> and if <span class="math inline">\(q=0\)</span> when <span class="math inline">\(p&lt;\frac12\)</span>.</p>
+<p>This should make sense, as you would try to match the other players move. If he is more likely to switch, you would switch, and vice versa.</p>
+</section>
+</section>
+<section id="infinity-hall" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Infinity Hall</h1>
+<p><strong>New scenario:</strong> There are <span class="math inline">\(n\)</span> doors such that there is a car (carries 1 point) behind exactly one of these doors and goats (each goat carries 0 points) behind all other doors. You select any one door. Then Monty opens <span class="math inline">\(n-2\)</span> doors that have goats. What is your expected score?</p>
+<section id="incorrect-solution-for-n-doors" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="incorrect-solution-for-n-doors"><span class="header-section-number">4.1</span> Incorrect solution for <span class="math inline">\(n\)</span> doors</h2>
+<p>After revealing the goats behind <span class="math inline">\(n-2\)</span> doors, we have that there are two doors left, and there’s a car behind either one of them. So, it must be that one door has a car an one a goat. So, expected payoff should be <span class="math inline">\(\mathbb{E} = \frac12 \times 1 + \frac12 \times 0 =\frac12\)</span>.</p>
+<p>But it is incorrect. First, we will see the correct solution and extrapolate the result to an infinite number of doors. Then, we will look at why must one suspect any incorrectness in this incorrect argument.</p>
+</section>
+<section id="correct-solution-1" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="correct-solution-1"><span class="header-section-number">4.2</span> Correct solution</h2>
+</section>
+</section>
+<section id="darth-hall-monty-is-evil" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Darth Hall: Monty is evil</h1>
+<p>Frustrated that you have cracked the classical version, Monty has now turned to the Dark side. He modifies the game, and is now trying to make you lose. Now, he imposes a penalty on you everytime you switch.</p>
+<p><strong>New rules:</strong> A car carries 1 point. A goat carries <span class="math inline">\(0\)</span> points. Now, switching results in a penalty of <span class="math inline">\(p\)</span> points. You have to find the optimal strategy to maximise your score.</p>
+<section id="solution" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="solution"><span class="header-section-number">5.1</span> Solution</h2>
+<p>We construct a payoff table, listing various scenarious, and how much you would gain from them.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Car is behind door (only Monty knows):</th>
+<th style="text-align: center;"><span class="math inline">\(D_1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(D_2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(D_3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>The door you pick initially, and what you do</em></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(D_1\)</span>, switch</td>
+<td style="text-align: center;"><span class="math inline">\(-p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1-p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1-p\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(D_2\)</span>, switch</td>
+<td style="text-align: center;"><span class="math inline">\(1-p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1-p\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(D_3\)</span>, switch</td>
+<td style="text-align: center;"><span class="math inline">\(1-p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1-p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-p\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(D_1\)</span>, stick</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(D_2\)</span>, stick</td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(D_3\)</span>, stick</td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Suppose now that you stick to your original choice with probabilty <span class="math inline">\(s\)</span>. Probability of car actually being behind door <span class="math inline">\(D_1\)</span>, <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span> is <span class="math inline">\(\frac13\)</span> each. Proability of intially selecting any particular door is also <span class="math inline">\(\frac13\)</span>, as when all are closed, you can’t tell the difference between any two. Then, expected payoff = <span class="math inline">\(\mathbb{E}= 3 \times \frac13 \times \frac13 \left(s\times0 +(1-s)(1-p)+s\times0+(1-s)(1-p) + s\times1 + (1-s)(1-p)\right) = s\left(p-\frac13\right)+\left(\frac23-p\right)\)</span></p>
+<p>For a fixed <span class="math inline">\(p\)</span>, <span class="math inline">\(\mathbb{E}\)</span> is a linear function of <span class="math inline">\(s\)</span>. We want to maximise <span class="math inline">\(\mathbb{E}\)</span>.</p>
+<section id="final-answer" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="final-answer"><span class="header-section-number">5.1.1</span> Final answer</h3>
+<p>If <span class="math inline">\(p&gt;\frac13\)</span>, then it is favourable to always stick <span class="math inline">\(s=1\)</span>, as the penalty is too high. If <span class="math inline">\(p&lt;\frac13\)</span>, then it is favourable to switch <span class="math inline">\(s=0\)</span>. For <span class="math inline">\(p=\frac13\)</span>, it does not matter if you switch or stick, as <span class="math inline">\(\mathbb{E} = \frac13\)</span>.</p>
+<p>Considering a special case, where <span class="math inline">\(p=0\)</span>, that is the OG version, we decide to switch. Thus, we get <span class="math inline">\(\mathbb{E} = \frac23\)</span>, which makes sense.</p>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

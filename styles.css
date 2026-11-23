@@ -1,40 +1,94 @@
-/* css styles */
-/* Google Sites-style full-width header banner */
-.hero-banner {
-  background-color: #263238; /* Deep slate color (or change to #1b4332 for forest green!) */
-  color: #ffffff;
-  padding: 4rem 2rem;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 2.5rem;
+/* styles.css — LaTeX-article look for Quarto HTML */
+
+/* Computer Modern web fonts (must be the first rule in the file) */
+@import url('https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css');
+
+:root {
+  --serif: "Computer Modern Serif", "Latin Modern Roman", Georgia, "Times New Roman", serif;
+  --mono:  "Computer Modern Typewriter", "Latin Modern Mono", Menlo, Consolas, monospace;
 }
 
-.hero-banner h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin: 0;
-  color: #ffffff;
-  border-bottom: none;
-}
-
-/* Clean, readable body font and spacing */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.75;
-  color: #212121;
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: #111;
+  background-color: #fdfdfd;
 }
 
-/* Social contact buttons at the bottom of Home */
-.contact-links a {
-  display: inline-block;
-  margin-right: 1rem;
-  padding: 0.4rem 0.9rem;
-  border: 1px solid #d0d7de;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
+/* Justified body text, only where it looks good */
+main p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+@media (max-width: 600px) {
+  main p { text-align: left; }   /* avoid rivers on narrow screens */
 }
 
-.contact-links a:hover {
-  background-color: #f3f4f6;
+/* Title block: centered like \maketitle */
+.quarto-title-block .quarto-title,
+.quarto-title-meta,
+.quarto-title-block .subtitle {
+  text-align: center;
+  font-family: var(--serif);
+}
+.quarto-title-block .quarto-title { margin: 1.5rem 0; }
+.quarto-title-meta { display: block; }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif);
+  font-weight: bold;
+  color: #000;
+  line-height: 1.25;
+}
+h2 { border-bottom: none; padding-bottom: 0; margin-top: 2rem; }
+
+/* Sidebar, TOC, navbar and captions share the same font */
+#TOC, .sidebar, .navbar, figcaption, .figure-caption, caption {
+  font-family: var(--serif);
+}
+figcaption, .figure-caption, caption {
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Booktabs-style tables: no vertical lines, heavy top/bottom rules */
+table {
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+table thead th {
+  border-bottom: 1px solid #000;
+  font-weight: bold;
+}
+table th, table td {
+  border-left: none;
+  border-right: none;
+  padding: 0.35rem 0.9rem;
+}
+
+/* Links: subtle, like hyperref */
+a { color: #1a3d7c; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Block quotes */
+blockquote {
+  border-left: 3px solid #bbb;
+  padding-left: 1rem;
+  color: #333;
+  font-size: 1.05rem;
+}
+
+/* Code & URLs */
+code, pre, kbd, samp {
+  font-family: var(--mono);
+}
+pre {
+  background: #f6f6f6;
+  border: 1px solid #e2e2e2;
+  border-radius: 2px;
 }
